@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Link } from "react-router-dom"
 
 import posterPlaceholder from "/img/poster_placeholder.png";
 
@@ -22,6 +22,10 @@ function MovieCard({ movie }){
           <div>
             <span>{movie.Type}</span>
             <h3>{movie.Title}</h3>
+            <Link
+              to={`/movie/${movie.imdbID}`}>
+              See more
+            </Link>
           </div>
       </div>   
     )
