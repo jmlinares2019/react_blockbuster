@@ -1,33 +1,65 @@
+// Packages & tools
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+// Assets
+import "./App.css";
+import searchIcon from "./search.svg";
+
+// Components
+import MovieCard from './components/MovieCard';
+
+const API_URL = "http://www.omdbapi.com/?apikey=df6ac670";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [movies, setMovies] = useState([]);
+  const [searched, setSearched] = useState(false);
+  const [search, setSearch] = useState("");
+
+  const handleInput = (e) => {
+    setSearch(e.target.value);
+  }
+
+  const searchMovies = async (search) => {
+    console.log(search);
+    setSearched(true);
+    try{
+      const res = await fetch(`${API_URL}&s=${search}`);
+      const moviesData = await res.json();
+      console.log(moviesData.Search);
+      setMovies(moviesData.Search);
+    } catch(err) {
+      console.log(err);
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>MovieLand</h1>
+      <div className="search">
+        <input 
+          type="text"
+          placeholder="Search a movie"
+          onChange={handleInput}
+          value={search}
+        />
+        <img 
+          src={searchIcon}
+          alt="search"
+          onClick={() => searchMovies(search)}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      { searched && movies === undefined ? 
+        <div className="empty">
+          <h2>No movies found</h2>
+        </div>
+      :
+        <div className="container">
+        {movies?.map((movie, index) => (
+          <MovieCard key={index} movie={movie} />
+        ))}
+        </div>
+      }
     </>
   )
 }
