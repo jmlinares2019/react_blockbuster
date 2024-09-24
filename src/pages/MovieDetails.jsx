@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom";
+
+import Loader from "../components/Loader";
+
 
 const MovieDetails = () => {
 
     const { id } = useParams(); 
+    const navigateTo = useNavigate();
     const [movieDetails, setMovieDetails] = useState({});
+    const [loading, setLoading] = useState(true);
 
-    // fetching movie data
+    // Fetching single movie data
     useEffect(() => {
         async function fetchMovieDetails(id){
             console.log(id);
@@ -17,14 +22,32 @@ const MovieDetails = () => {
                 setMovieDetails(data);
             } catch(error) {
                 console.log(error);
+            } finally {
+                setLoading(false);
             }
         }
-        
         fetchMovieDetails(id);
     }, []);
 
+    function goBack(){
+        navigateTo(-1);
+    }
+
     return (
         <div className="container justify-content-start">
+        { loading ? 
+            <Loader />
+        :
+        <>
+        <div className="row">
+            <div className="col">
+                <Link 
+                    className="go-back"
+                    onClick={() => goBack()}>
+                    Go back
+                </Link>
+            </div>
+        </div>
             <div className="row title-wrapper">
                 <div className="col-auto">
                     <h1 className="movie-title">{movieDetails.Title}</h1>
@@ -43,10 +66,10 @@ const MovieDetails = () => {
                 </div>
                 <div className="col-6 contents-col">
                     <div className="genres">
-                    {/* Genres come in a string, but we need them as an array */}
-                    {(movieDetails.Genre.split(",")).map((genre) => (
+                    {/* Genres come in a string, but I need them as an array */}
+                    {/* {(movieDetails?.Genre.split(",")).map((genre) => (
                         <span className="genre">{genre}</span>
-                    ))}
+                    ))} */}
                     </div>
                     <p className="plot">{movieDetails.Plot}</p>
                     <div className="ratings">
@@ -58,6 +81,8 @@ const MovieDetails = () => {
                     <p className="cast">Cast: {movieDetails.Actors}</p>
                 </div>
             </div>
+            </>
+        }
         </div> 
     )
 }

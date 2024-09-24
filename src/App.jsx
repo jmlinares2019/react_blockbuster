@@ -9,6 +9,7 @@ import "./App.css";
 import MainLayout from './layouts/MainLayout';
 import Home from "./pages/Home";
 import MovieDetails from './pages/MovieDetails';
+import Loader from './components/Loader';
 
 function App() {
 
@@ -16,10 +17,12 @@ function App() {
 
     const [movies, setMovies] = useState([]);
     const [searched, setSearched] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     // Fetching movies by search
     const searchMovies = async (search) => {
         console.log(search);
+        setLoading(true);
         setSearched(true);
         try {
             const res = await fetch(`${API_URL}&s=${search}`);
@@ -28,6 +31,8 @@ function App() {
             setMovies(moviesData.Search);
         } catch(err) {
             console.log(err);
+        } finally {
+          setLoading(false);
         }
     }
 
@@ -46,6 +51,7 @@ function App() {
               element={<Home 
                         searched={searched}
                         movies={movies} 
+                        loading={loading}
                       />}
             />
             <Route 
