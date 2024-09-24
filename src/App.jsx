@@ -1,67 +1,71 @@
 // Packages & tools
-import { useState } from 'react'
+import { useState } from 'react';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 
 // Assets
 import "./App.css";
-import searchIcon from "./search.svg";
 
 // Components
-import MovieCard from './components/MovieCard';
-
-const API_URL = "http://www.omdbapi.com/?apikey=df6ac670";
+import MainLayout from './layouts/MainLayout';
+import Home from "./pages/Home";
+import MovieDetails from './pages/MovieDetails';
+import Loader from './components/Loader';
 
 function App() {
 
-  const [movies, setMovies] = useState([]);
-  const [searched, setSearched] = useState(false);
-  const [search, setSearch] = useState("");
+    const API_URL = "http://www.omdbapi.com/?apikey=df6ac670";
 
-  const handleInput = (e) => {
-    setSearch(e.target.value);
-  }
+    const [movies, setMovies] = useState([]);
+    const [searched, setSearched] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-  const searchMovies = async (search) => {
-    console.log(search);
-    setSearched(true);
-    try{
-      const res = await fetch(`${API_URL}&s=${search}`);
-      const moviesData = await res.json();
-      console.log(moviesData.Search);
-      setMovies(moviesData.Search);
-    } catch(err) {
-      console.log(err);
+    // Fetching movies by search
+    const searchMovies = async (search) => {
+        console.log(search);
+        setLoading(true);
+        setSearched(true);
+        try {
+            const res = await fetch(`${API_URL}&s=${search}`);
+            const moviesData = await res.json();
+            console.log(moviesData.Search);
+            setMovies(moviesData.Search);
+        } catch(err) {
+            console.log(err);
+        } finally {
+          setLoading(false);
+        }
     }
-  }
 
-  return (
-    <>
-      <h1>MovieLand</h1>
-      <div className="search">
-        <input 
-          type="text"
-          placeholder="Search a movie"
-          onChange={handleInput}
-          value={search}
-        />
-        <img 
-          src={searchIcon}
-          alt="search"
-          onClick={() => searchMovies(search)}
-        />
-      </div>
-      { searched && movies === undefined ? 
-        <div className="empty">
-          <h2>No movies found</h2>
-        </div>
-      :
-        <div className="container">
-        {movies?.map((movie, index) => (
-          <MovieCard key={index} movie={movie} />
-        ))}
-        </div>
-      }
-    </>
-  )
+    const router = createBrowserRouter(
+      createRoutesFromElements(
+        <> 
+          <Route 
+            path="/" 
+            element={<MainLayout 
+                        setMovies={setMovies}
+                        searchMovies={searchMovies}
+                    />
+          }>
+            <Route 
+              index 
+              element={<Home 
+                        searched={searched}
+                        movies={movies} 
+                        loading={loading}
+                      />}
+            />
+            <Route 
+              path="/movie/:id" 
+              element={<MovieDetails />}   
+            />
+          </Route>
+        </>
+      )
+    )
+
+    return (
+      <RouterProvider router={router} />
+    )
 }
 
 export default App
