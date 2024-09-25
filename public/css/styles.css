@@ -11849,6 +11849,7 @@ textarea.form-control-lg {
   background-color: #1e1b1b;
 }
 .navbar .navbar-brand {
+  font-family: "Edu AU VIC WA NT Dots", cursive;
   color: white;
 }
 .navbar .btn {
@@ -11921,7 +11922,7 @@ textarea.form-control-lg {
 }
 
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .main-wrapper {
