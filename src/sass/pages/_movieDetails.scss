@@ -1,0 +1,58 @@
+
+.movie-details{
+    max-width: 800px;
+
+    .back-results{
+
+        .col{
+            display: flex;
+            align-items: center;
+        }
+
+        svg{
+            color: gray;
+            margin-right: .5rem;
+        }
+
+        .back-link{
+            color: gray !important;
+            text-decoration: none;
+        }
+        
+    }
+
+    .title-wrapper{
+        margin-top: 10px;
+    }
+
+    .metadata-wrapper{
+        justify-content: space-between;
+        color: grey;
+
+        .ratings{
+            display: flex;
+            align-items: center;
+        
+            .rating{
+                margin-right: .5rem;
+            }
+        
+            svg{
+                margin-right: .25rem;
+            }
+        }
+    }
+
+    
+    .crew{
+        margin-top: 10px;
+
+        .position{
+            font-weight: 700;
+        }
+    
+        p{
+            margin-bottom: 0;
+        }
+    }
+}

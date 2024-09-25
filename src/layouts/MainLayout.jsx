@@ -6,12 +6,12 @@ const MainLayout = ({ setMovies, searchMovies }) => {
   return (
     <>
         <Navbar 
-            // search={search} 
-            setMovies={setMovies}
-            // handleInput={handleInput} 
+            setMovies={setMovies} 
             searchMovies={searchMovies}
         />
-        <Outlet />
+        <main className="main-wrapper">
+          <Outlet />
+        </main>
     </>
   )
 }
