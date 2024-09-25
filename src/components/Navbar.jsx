@@ -26,7 +26,7 @@ const Navbar = ({ setMovies, searchMovies }) => {
 
     return (
         <>
-        <nav className="navbar bg-body-tertiary">
+        <nav className="navbar">
             <div className="container-fluid">
                 <Link 
                     className="navbar-brand"
@@ -45,13 +45,13 @@ const Navbar = ({ setMovies, searchMovies }) => {
                         value={search}     
                     />
                     <a // why not button? (reloads) 
-                        className="btn btn-outline-success" 
+                        className="btn" 
                         type="submit"
                         onClick={() => newSearch(search)}>
-                        <img 
+                        {/* <img 
                             src={searchIcon}
                             alt="search"
-                        />
+                        /> */}
                         Search
                     </a>
                 </form>

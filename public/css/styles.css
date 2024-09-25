@@ -11844,10 +11844,88 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-body {
+.navbar {
+  height: 60px;
+  background-color: #1e1b1b;
+}
+.navbar .navbar-brand {
+  font-family: "Edu AU VIC WA NT Dots", cursive;
   color: white;
 }
+.navbar .btn {
+  background-color: aqua;
+}
 
-div, header, footer {
-  border: 1px solid greenyellow;
+.movie:hover .item-info {
+  background-color: rgba(145, 140, 140, 0.4);
+}
+.movie:hover .item-info .item-year,
+.movie:hover .item-info .item-type,
+.movie:hover .item-info .item-title {
+  color: #212426 !important;
+  font-weight: 700;
+}
+.movie .details-link {
+  cursor: pointer;
+}
+.movie .details-link .item-info {
+  margin: 0 12px;
+}
+.movie .details-link .item-info .item-title {
+  color: white;
+  font-size: 22px;
+}
+.movie .details-link .item-info .item-year {
+  color: rgb(224, 48, 118);
+}
+
+.movie-details {
+  max-width: 800px;
+}
+.movie-details .back-results .col {
+  display: flex;
+  align-items: center;
+}
+.movie-details .back-results svg {
+  color: gray;
+  margin-right: 0.5rem;
+}
+.movie-details .back-results .back-link {
+  color: gray !important;
+  text-decoration: none;
+}
+.movie-details .title-wrapper {
+  margin-top: 10px;
+}
+.movie-details .metadata-wrapper {
+  justify-content: space-between;
+  color: grey;
+}
+.movie-details .metadata-wrapper .ratings {
+  display: flex;
+  align-items: center;
+}
+.movie-details .metadata-wrapper .ratings .rating {
+  margin-right: 0.5rem;
+}
+.movie-details .metadata-wrapper .ratings svg {
+  margin-right: 0.25rem;
+}
+.movie-details .crew {
+  margin-top: 10px;
+}
+.movie-details .crew .position {
+  font-weight: 700;
+}
+.movie-details .crew p {
+  margin-bottom: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.main-wrapper {
+  margin-top: 20px;
+  margin-bottom: 50px;
 }

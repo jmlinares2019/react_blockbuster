@@ -1,10 +1,30 @@
+// Bootstrap
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
+// Abstracts
+@import './abstracts/variables';
+
+// Components
+@import './components/navbar';
+@import './components//movieCard';
+
+// Pages
+@import './pages/home';
+@import './pages/movieDetails';
+
 body{
-    color: white;
+    // color: white;
+    font-family: "Roboto", sans-serif;
 }
 
 div, header, footer{
-    border: 1px solid greenyellow;
+    // border: 1px solid greenyellow;
+}
+
+.main-wrapper{
+    margin: {
+        top: 20px;
+        bottom: 50px;
+    }
 }
 

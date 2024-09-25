@@ -1,0 +1,38 @@
+.movie{
+    &:hover{
+
+        .item-info{
+            background-color: #918c8c66;
+
+            .item-year,
+            .item-type,
+            .item-title{
+            color: $black !important;
+            font-weight: 700;
+        }
+        }
+        
+    }
+
+    .details-link{
+        cursor: pointer;
+
+        .item-info{
+            margin: 0 12px;
+    
+            .item-title{
+                color: white;
+                font-size: 22px;
+            }
+
+            .item-year{
+                color: $theme-color;
+            }
+        }
+
+        
+    }
+    
+
+    
+}
