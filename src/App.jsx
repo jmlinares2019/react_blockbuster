@@ -1,6 +1,6 @@
 // Packages & tools
-import { useState } from 'react';
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 // Assets
 import "./App.css";
@@ -8,64 +8,112 @@ import "./App.css";
 // Components
 import MainLayout from './layouts/MainLayout';
 import Home from "./pages/Home";
+import SearchResults from './pages/SearchResults';
 import MovieDetails from './pages/MovieDetails';
-import Loader from './components/Loader';
 
 function App() {
 
-    const API_URL = "http://www.omdbapi.com/?apikey=df6ac670";
+      const API_URL = "http://www.omdbapi.com/?apikey=7f41dab3";
 
-    const [movies, setMovies] = useState([]);
-    const [searched, setSearched] = useState(false);
-    const [loading, setLoading] = useState(false);
+      const navigateTo = useNavigate();
 
-    // Fetching movies by search
-    const searchMovies = async (search) => {
-        console.log(search);
+      const [movies, setMovies] = useState([]);
+      const [searched, setSearched] = useState(false);
+      const [loading, setLoading] = useState(false);
+      const [movieDetails, setMovieDetails] = useState({});
+      const [randomMovie, setRandomMovie] = useState({});
+      
+      // Fecthing a random movie of the day (home)
+      const fetchRandomMovie = async () => {
         setLoading(true);
-        setSearched(true);
-        try {
-            const res = await fetch(`${API_URL}&s=${search}`);
-            const moviesData = await res.json();
-            console.log(moviesData.Search);
-            setMovies(moviesData.Search);
-        } catch(err) {
-            console.log(err);
+        const searchTerms = ["head", "body", "tree", "love"]
+        const termIndex = Math.floor((Math.random()) * (searchTerms.length)); // * 4. Expected 0,1,2,3
+        console.log(termIndex);
+        const randomSearchTerm = searchTerms[termIndex]; 
+        console.log(randomSearchTerm);
+        const pickIndex = Math.floor((Math.random()) * 11);
+        try{
+          const res = await fetch(`${API_URL}&s=${randomSearchTerm}&type=movie&plot=full`);
+          const data = await res.json();
+          console.log(data);
+          setRandomMovie(data.Search[pickIndex]);
+        } catch(error){
+            console.log(error);
         } finally {
-          setLoading(false);
+            setLoading(false);
         }
-    }
+      }
+      
+      
+      // Fetching movies by search
+      const searchMovies = async (search) => {
+          navigateTo("/search");
+          setLoading(true);
+          setSearched(true);
+          try {
+              const res = await fetch(`${API_URL}&s=${search}`);
+              const movies = await res.json();
+              console.log(movies.Search);
+              setMovies(movies.Search);
+          } catch(err) {
+              console.log(err);
+          } finally {
+              setLoading(false);
+          }
+      }
 
-    const router = createBrowserRouter(
-      createRoutesFromElements(
-        <> 
+      // Fetching movie data (when clicking on a search result)
+      async function fetchMovieDetails(id){
+          setLoading(true);
+          try{
+              const res = await fetch(`${API_URL}&i=${id}&plot=full`);
+              const data = await res.json();
+              console.log(data);
+              setMovieDetails(data);
+          } catch(error) {
+              console.log(error);
+          } finally {
+              setLoading(false);
+          }
+      }
+
+      return(
+        <Routes>
           <Route 
-            path="/" 
-            element={<MainLayout 
-                        setMovies={setMovies}
-                        searchMovies={searchMovies}
-                    />
-          }>
-            <Route 
-              index 
-              element={<Home 
-                        searched={searched}
-                        movies={movies} 
-                        loading={loading}
-                      />}
-            />
-            <Route 
-              path="/movie/:id" 
-              element={<MovieDetails />}   
-            />
-          </Route>
-        </>
+              path="/" 
+              element={<MainLayout 
+                          setMovies={setMovies}
+                          searchMovies={searchMovies}
+                      />
+              }
+            >
+              <Route 
+                index 
+                element={<Home 
+                            fetchRandomMovie={fetchRandomMovie}
+                            randomMovie={randomMovie}
+                            loading={loading}
+                        />
+                }
+              />
+              <Route 
+                path="/search"
+                element={<SearchResults 
+                            searched={searched}
+                            movies={movies} 
+                        />}
+              />
+              <Route 
+                path="/movie/:id"
+                element={<MovieDetails 
+                            fetchMovieDetails={fetchMovieDetails}
+                            movieDetails={movieDetails}
+                            loading={loading} 
+                        />}   
+              />
+            </Route>
+        </Routes>
       )
-    )
-
-    return (
-      <RouterProvider router={router} />
-    )
 }
 
 export default App
