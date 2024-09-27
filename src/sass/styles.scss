@@ -7,10 +7,10 @@
 // Components
 @import './components/navbar';
 @import './components//movieCard';
+@import './components/movie';
 
 // Pages
 @import './pages/home';
-@import './pages/movieDetails';
 
 body{
     // color: white;
@@ -18,7 +18,7 @@ body{
 }
 
 div, header, footer{
-    // border: 1px solid greenyellow;
+    border: 1px solid greenyellow;
 }
 
 .main-wrapper{

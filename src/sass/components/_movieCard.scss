@@ -1,4 +1,5 @@
-.movie{
+.movie-card{
+
     &:hover{
 
         .item-info{
@@ -18,7 +19,7 @@
         cursor: pointer;
 
         .item-info{
-            margin: 0 12px;
+            // margin: 0 12px;
     
             .item-title{
                 color: white;
