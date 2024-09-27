@@ -1,6 +1,7 @@
-
 .movie-details{
     max-width: 800px;
+
+    // missing some parent class for movie-item!
 
     .back-results{
 
@@ -43,16 +44,26 @@
         }
     }
 
-    
-    .crew{
-        margin-top: 10px;
+    .main-wrapper{
 
-        .position{
-            font-weight: 700;
+        .img-col{
+            
+            img.poster{
+                width: 100%;
+            }
         }
+
+        .crew{
+            margin-top: 10px;
     
-        p{
-            margin-bottom: 0;
+            .position{
+                font-weight: 700;
+            }
+        
+            p{
+                margin-bottom: 0;
+            }
         }
     }
+    
 }

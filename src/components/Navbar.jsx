@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import searchIcon from "../search.svg"
-
 const Navbar = ({ setMovies, searchMovies }) => {
 
     const navigateTo = useNavigate();
@@ -15,7 +13,7 @@ const Navbar = ({ setMovies, searchMovies }) => {
 
     const resetAll = () => {
         setMovies([]);
-        navigateTo("/");
+        navigateTo("/"); // translates to current URL (?)
     }
 
     const newSearch = () => {

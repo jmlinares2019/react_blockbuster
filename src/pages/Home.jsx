@@ -1,35 +1,40 @@
 import MovieCard from "../components/MovieCard";
 
 import Loader from "../components/Loader";
+import { useEffect } from "react";
 
-function Home({ searched, movies, loading }){
+function Home({ fetchRandomMovie, randomMovie, loading }){
+
+    useEffect(() => {
+        console.log("Fetching movie!");
+        fetchRandomMovie();
+        console.log(randomMovie);
+    }, []);
 
     return(
             <div className="container">
                 <div className="row">
-                    <h1>Title here</h1>
-                    <p>
-                        Exercitation sunt qui id excepteur consequat quis eu occaecat cupidatat exercitation velit. Duis magna ea sint officia culpa magna deserunt in reprehenderit dolore ad laboris ea est. Aute dolor sint ad sint magna deserunt non incididunt sit est cupidatat mollit. Officia labore Lorem laboris aliqua id velit laboris consectetur non minim mollit dolor. Voluptate labore sint in aute qui veniam enim deserunt. Excepteur eiusmod irure occaecat ex labore nisi ea reprehenderit pariatur in in anim adipisicing.
-                    </p>
-                </div>
-                <div className="row">
-                { loading ? 
-                    <Loader />
-                :
-                    ( searched && movies === undefined ? 
-                        <div className="col empty">
-                            <h2>No movies found</h2>
+                    <div className="col-8 intro">
+                        <h1>Welcome to KinoLand</h1>
+                        <p>Esse eu ad officia voluptate aute. Nisi deserunt ad laboris sunt dolore ut laboris cupidatat non non ex proident laboris. Veniam cillum cillum Lorem sint in amet ea proident magna voluptate occaecat. Anim nulla ex exercitation excepteur exercitation anim reprehenderit ea anim minim id.</p>
+
+                    </div>
+                    <div className="col-4 movie-of-day">
+                        <div className="row home-title">
+                            <h2>Movie of the Day</h2>
                         </div>
-                    :
-                        <>
-                        {movies?.map((movie, index) => (
-                            <MovieCard key={index} movie={movie} />
-                        ))}
-                        </>
-                    )
-                }
+                        <div className="row moviecard-wrapper">
+                        { loading ? 
+                            <Loader />
+                        :
+                            <MovieCard movie={randomMovie} />
+                        }    
+                        </div>
+                    </div>        
                 </div>
-            </div>        
+                
+            </div>
+            
     )
 }
 
