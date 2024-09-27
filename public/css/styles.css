@@ -11856,26 +11856,23 @@ textarea.form-control-lg {
   background-color: aqua;
 }
 
-.movie:hover .item-info {
+.movie-card:hover .item-info {
   background-color: rgba(145, 140, 140, 0.4);
 }
-.movie:hover .item-info .item-year,
-.movie:hover .item-info .item-type,
-.movie:hover .item-info .item-title {
+.movie-card:hover .item-info .item-year,
+.movie-card:hover .item-info .item-type,
+.movie-card:hover .item-info .item-title {
   color: #212426 !important;
   font-weight: 700;
 }
-.movie .details-link {
+.movie-card .details-link {
   cursor: pointer;
 }
-.movie .details-link .item-info {
-  margin: 0 12px;
-}
-.movie .details-link .item-info .item-title {
+.movie-card .details-link .item-info .item-title {
   color: white;
   font-size: 22px;
 }
-.movie .details-link .item-info .item-year {
+.movie-card .details-link .item-info .item-year {
   color: rgb(224, 48, 118);
 }
 
@@ -11911,18 +11908,35 @@ textarea.form-control-lg {
 .movie-details .metadata-wrapper .ratings svg {
   margin-right: 0.25rem;
 }
-.movie-details .crew {
+.movie-details .main-wrapper .img-col img.poster {
+  width: 100%;
+}
+.movie-details .main-wrapper .crew {
   margin-top: 10px;
 }
-.movie-details .crew .position {
+.movie-details .main-wrapper .crew .position {
   font-weight: 700;
 }
-.movie-details .crew p {
+.movie-details .main-wrapper .crew p {
   margin-bottom: 0;
+}
+
+.movie-of-day .movie-card {
+  width: 300px;
+}
+.movie-of-day .movie-card img.item-poster {
+  object-fit: cover;
+}
+.movie-of-day .movie-card .item-info {
+  margin: 0 12px;
 }
 
 body {
   font-family: "Roboto", sans-serif;
+}
+
+div, header, footer {
+  border: 1px solid greenyellow;
 }
 
 .main-wrapper {
