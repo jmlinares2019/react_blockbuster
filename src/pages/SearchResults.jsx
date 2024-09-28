@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import MovieCard from '../components/MovieCard'
 import Loader from '../components/Loader'
 
-const SearchResults = ({ searched, movies, loading }) => {
+const SearchResults = ({ searchBackMovies, searched, movies, loading }) => {
+
+    const reSearchTeam = sessionStorage.getItem("searchTerm");
+    useEffect(() => {
+        if(reSearchTeam !== null){
+            searchBackMovies(reSearchTeam);
+        }
+    }, []);
     
     return (
     <div className="container">

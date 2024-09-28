@@ -47,9 +47,10 @@ function App() {
       
       // Fetching movies by search
       const searchMovies = async (search) => {
-          navigateTo("/search");
+          navigateTo("/results");
           setLoading(true);
           setSearched(true);
+          sessionStorage.setItem("searchTerm", search);
           try {
               const res = await fetch(`${API_URL}&s=${search}`);
               const movies = await res.json();
@@ -97,10 +98,12 @@ function App() {
                 }
               />
               <Route 
-                path="/search"
+                path="/results"
                 element={<SearchResults 
+                            searchBackMovies={searchMovies}
                             searched={searched}
                             movies={movies} 
+                            loading={loading}
                         />}
               />
               <Route 

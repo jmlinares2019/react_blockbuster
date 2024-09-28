@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 
 import { FaAngleLeft } from 'react-icons/fa6';
 import { FaStar } from "react-icons/fa6";
-// import { GoPerson } from "react-icons/go";
 import { GoPersonFill } from "react-icons/go";
 import posterPlaceholder from "/img/poster_placeholder.png"
 
 const Movie = ({ movie }) => {
+
+    const navigateTo = useNavigate();
+    
+    function goBack(){
+        navigateTo(-1);
+    }
 
     return (
         <>
@@ -15,8 +20,8 @@ const Movie = ({ movie }) => {
                     <FaAngleLeft />
                     <Link 
                         className="back-link"
-                        to={"/"}>
-                        Home
+                        onClick={goBack}>
+                        Back
                     </Link>
                 </div>
             </div>
