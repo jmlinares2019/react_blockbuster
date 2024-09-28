@@ -1,0 +1,7 @@
+@function stripUnit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@function remify($pxValue) {
+    @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}

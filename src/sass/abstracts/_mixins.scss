@@ -1,0 +1,84 @@
+// Media queries
+@mixin phone-down{
+    @media screen and (max-width: $phone) {
+        @content;
+    }
+}
+
+@mixin phone-to-tablet{
+    @media screen and (min-width: $phone) and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin phone-to-desktop{
+    @media screen and (min-width: $phone) and (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin phone-to-large-desktop{
+    @media screen and (min-width: $phone) and (max-width: $large-desktop) {
+        @content;
+    }
+}
+
+@mixin phone-up{
+    @media screen and (min-width: $phone){
+        @content;
+    }
+}
+
+@mixin tablet-down{
+    @media screen and (max-width: $tablet){
+        @content;
+    }
+}
+
+@mixin tablet-to-desktop{
+    @media screen and (min-width: $tablet) and (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin tablet-to-large-desktop{
+    @media screen and (min-width: $tablet) and (max-width: $large-desktop) {
+        @content;
+    }
+}
+
+@mixin tablet-up{
+    @media screen and (min-width: $tablet){
+        @content;
+    }
+}
+
+@mixin desktop-down{
+    @media screen and (max-width: $desktop){
+        @content;
+    }
+}
+
+@mixin desktop-to-large-desktop{
+    @media screen and (min-width: $desktop) and (max-width: $large-desktop) {
+        @content;
+    }
+}
+
+@mixin desktop-up{
+    @media screen and (min-width: $desktop){
+        @content;
+    }
+}
+
+@mixin large-desktop-down{
+    @media screen and (max-width: $large-desktop){
+        @content;
+    }
+}
+
+@mixin large-desktop-up{
+    @media screen and (min-width: $large-desktop){
+        @content;
+    }
+}
