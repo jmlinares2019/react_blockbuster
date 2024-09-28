@@ -11,12 +11,12 @@
         }
 
         svg{
-            color: gray;
+            color: $theme-color;
             margin-right: .5rem;
         }
 
         .back-link{
-            color: gray !important;
+            color: $theme-color !important;
             text-decoration: none;
         }
         
@@ -28,7 +28,7 @@
 
     .metadata-wrapper{
         justify-content: space-between;
-        color: grey;
+        color: $lightGrey;
 
         .ratings{
             display: flex;
@@ -39,6 +39,7 @@
             }
         
             svg{
+                fill: $theme-color;
                 margin-right: .25rem;
             }
         }
@@ -53,17 +54,31 @@
             }
         }
 
-        .crew{
-            margin-top: 10px;
-    
-            .position{
-                font-weight: 700;
+        .contents-col{
+            font-weight: 300;
+
+            @include tablet-down{
+                margin-top: 20px;
             }
+
+            .plot{
+                // font-weight: 300;
+            }
+
+            .crew{
+                margin-top: 10px;
         
-            p{
-                margin-bottom: 0;
+                .position{
+                    font-weight: 700;
+                }
+            
+                p{
+                    margin-bottom: 0;
+                }
             }
         }
+
+        
     }
     
 }
