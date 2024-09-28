@@ -1,14 +1,12 @@
-import React from 'react'
 import { Link, useNavigate } from "react-router-dom"
 
 import { FaAngleLeft } from 'react-icons/fa6';
-import { FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa6";
 import { GoPerson } from "react-icons/go";
 import posterPlaceholder from "/img/poster_placeholder.png"
 
 const Movie = ({ movie }) => {
 
-    console.log(movie);
     const navigateTo = useNavigate();
 
     function goBack(e){
@@ -38,10 +36,11 @@ const Movie = ({ movie }) => {
                 <div className="col metadata">
                     <span>{movie.Year} · </span>
                     <span>{movie.Runtime} · </span>
+                    <span>{movie.Country} · </span>
                     <span>{movie.Type}</span>
                 </div>
                 <div className="col ratings">
-                    <FaRegStar />
+                    <FaStar />
                     <span className="rating">{`${movie.imdbRating}/10`}</span>
                     <GoPerson />
                     <span className="ratings-count">{movie.imdbVotes}</span>
