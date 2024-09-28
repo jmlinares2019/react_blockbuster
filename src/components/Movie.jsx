@@ -1,17 +1,12 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import { FaAngleLeft } from 'react-icons/fa6';
 import { FaStar } from "react-icons/fa6";
-import { GoPerson } from "react-icons/go";
+// import { GoPerson } from "react-icons/go";
+import { GoPersonFill } from "react-icons/go";
 import posterPlaceholder from "/img/poster_placeholder.png"
 
 const Movie = ({ movie }) => {
-
-    const navigateTo = useNavigate();
-
-    function goBack(e){
-        navigateTo(-1); // removes movies (not showing results!)
-    }
 
     return (
         <>
@@ -20,8 +15,8 @@ const Movie = ({ movie }) => {
                     <FaAngleLeft />
                     <Link 
                         className="back-link"
-                        onClick={(e) => goBack(e)}>
-                        Back to results
+                        to={"/"}>
+                        Home
                     </Link>
                 </div>
             </div>
@@ -42,7 +37,7 @@ const Movie = ({ movie }) => {
                 <div className="col ratings">
                     <FaStar />
                     <span className="rating">{`${movie.imdbRating}/10`}</span>
-                    <GoPerson />
+                    <GoPersonFill />
                     <span className="ratings-count">{movie.imdbVotes}</span>
                 </div>
             </div>
@@ -58,7 +53,7 @@ const Movie = ({ movie }) => {
                 <div className="col-md-6 contents-col">
                     <div className="genres">
                     {/* Genres come in a string, but I need them as an array */}
-                    {/* {(movieDetails?.Genre.split(",")).map((genre) => (
+                    {/* {(movie?.Genre.split(",")).map((genre) => (
                         <span className="genre">{genre}</span>
                     ))} */}
                     </div>

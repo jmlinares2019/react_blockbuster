@@ -11,13 +11,13 @@ const Navbar = ({ setMovies, searchMovies }) => {
         setSearch(e.target.value);
     }
 
-    const resetAll = () => {
-        setMovies([]);
-        navigateTo("/"); // translates to current URL (?)
-    }
+    /* const resetAll = () => {
+        // setMovies([]);
+        // navigateTo("/"); // translates to current URL (?)
+    } */
 
     const newSearch = () => {
-        resetAll();
+        // resetAll();
         searchMovies(search);
         setSearch("");
     }
@@ -28,7 +28,8 @@ const Navbar = ({ setMovies, searchMovies }) => {
             <div className="container-fluid">
                 <Link 
                     className="navbar-brand"
-                    onClick={resetAll}>
+                    to={"/"}
+                    >
                     KinoLand
                 </Link>
                 <form 
