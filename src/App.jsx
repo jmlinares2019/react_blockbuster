@@ -26,8 +26,8 @@ function App() {
       // Fecthing a random movie of the day (home)
       const fetchRandomMovie = async () => {
         setLoading(true);
-        const searchTerms = ["head", "body", "tree", "love"]
-        const termIndex = Math.floor((Math.random()) * (searchTerms.length)); // * 4. Expected 0,1,2,3
+        const searchTerms = ["head", "body", "tree", "love", "world", "friend", "life", "great", "cold", "kill"];
+        const termIndex = Math.floor((Math.random()) * (searchTerms.length)); 
         console.log(termIndex);
         const randomSearchTerm = searchTerms[termIndex]; 
         console.log(randomSearchTerm);
