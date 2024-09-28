@@ -11846,34 +11846,56 @@ textarea.form-control-lg {
 }
 .navbar {
   height: 60px;
-  background-color: #1e1b1b;
+  background-color: black;
 }
 .navbar .navbar-brand {
   font-family: "Edu AU VIC WA NT Dots", cursive;
   color: white;
 }
 .navbar .btn {
-  background-color: aqua;
+  background-color: #f5c518;
 }
 
+.movie-card {
+  height: 460px;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+@media screen and (min-width: 576px) {
+  .movie-card {
+    margin: 1.5rem 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .movie-card {
+    width: 300px;
+    margin: 1.5rem auto;
+  }
+}
 .movie-card:hover .item-info {
   background-color: rgba(145, 140, 140, 0.4);
 }
 .movie-card:hover .item-info .item-year,
 .movie-card:hover .item-info .item-type,
 .movie-card:hover .item-info .item-title {
-  color: #212426 !important;
+  color: #000 !important;
   font-weight: 700;
 }
 .movie-card .details-link {
   cursor: pointer;
+}
+.movie-card .details-link .poster-wrapper .item-poster {
+  object-fit: cover;
 }
 .movie-card .details-link .item-info .item-title {
   color: white;
   font-size: 22px;
 }
 .movie-card .details-link .item-info .item-year {
-  color: rgb(224, 48, 118);
+  color: #f5c518;
 }
 
 .movie-details {
@@ -11884,11 +11906,11 @@ textarea.form-control-lg {
   align-items: center;
 }
 .movie-details .back-results svg {
-  color: gray;
+  color: #f5c518;
   margin-right: 0.5rem;
 }
 .movie-details .back-results .back-link {
-  color: gray !important;
+  color: #f5c518 !important;
   text-decoration: none;
 }
 .movie-details .title-wrapper {
@@ -11896,7 +11918,7 @@ textarea.form-control-lg {
 }
 .movie-details .metadata-wrapper {
   justify-content: space-between;
-  color: grey;
+  color: #9f9f9f;
 }
 .movie-details .metadata-wrapper .ratings {
   display: flex;
@@ -11906,21 +11928,46 @@ textarea.form-control-lg {
   margin-right: 0.5rem;
 }
 .movie-details .metadata-wrapper .ratings svg {
+  fill: #f5c518;
   margin-right: 0.25rem;
 }
 .movie-details .main-wrapper .img-col img.poster {
   width: 100%;
 }
-.movie-details .main-wrapper .crew {
+.movie-details .main-wrapper .contents-col {
+  font-weight: 300;
+}
+@media screen and (max-width: 768px) {
+  .movie-details .main-wrapper .contents-col {
+    margin-top: 20px;
+  }
+}
+.movie-details .main-wrapper .contents-col .crew {
   margin-top: 10px;
 }
-.movie-details .main-wrapper .crew .position {
+.movie-details .main-wrapper .contents-col .crew .position {
   font-weight: 700;
 }
-.movie-details .main-wrapper .crew p {
+.movie-details .main-wrapper .contents-col .crew p {
   margin-bottom: 0;
 }
 
+@media screen and (max-width: 576px) {
+  .movie-of-day {
+    margin: 40px auto 0;
+  }
+  .movie-of-day .home-title {
+    text-align: center;
+  }
+}
+.movie-of-day .home-title h2, .movie-of-day .home-title .h2 {
+  color: #9f9f9f;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .movie-of-day .home-title h2, .movie-of-day .home-title .h2 {
+    font-size: 1.625rem;
+  }
+}
 .movie-of-day .movie-card {
   width: 300px;
 }
@@ -11928,18 +11975,24 @@ textarea.form-control-lg {
   object-fit: cover;
 }
 .movie-of-day .movie-card .item-info {
-  margin: 0 12px;
+  margin-right: calc(var(--bs-gutter-x) * 0.5);
+  margin-left: calc(var(--bs-gutter-x) * 0.5);
 }
 
-body {
+html {
+  font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+html body {
+  background-image: radial-gradient(#3a3a3a, #212426);
+  color: white;
   font-family: "Roboto", sans-serif;
 }
-
-div, header, footer {
-  border: 1px solid greenyellow;
-}
-
-.main-wrapper {
+html body .main-wrapper {
   margin-top: 20px;
   margin-bottom: 50px;
 }
