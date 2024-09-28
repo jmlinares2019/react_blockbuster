@@ -29,7 +29,7 @@ const Navbar = ({ setMovies, searchMovies }) => {
                 <Link 
                     className="navbar-brand"
                     onClick={resetAll}>
-                    MovieLand
+                    KinoLand
                 </Link>
                 <form 
                     className="d-flex" 

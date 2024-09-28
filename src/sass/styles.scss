@@ -3,28 +3,38 @@
 
 // Abstracts
 @import './abstracts/variables';
+@import './abstracts/functions';
+@import './abstracts/mixins';
 
 // Components
 @import './components/navbar';
 @import './components//movieCard';
-@import './components/movie';
+@import './components/movieDetails';
 
 // Pages
 @import './pages/home';
 
-body{
-    // color: white;
-    font-family: "Roboto", sans-serif;
-}
+html{
+    font-size: 16px;
 
-div, header, footer{
-    border: 1px solid greenyellow;
-}
+    @include tablet-down{
+        font-size: 14px;
+    }
 
-.main-wrapper{
-    margin: {
-        top: 20px;
-        bottom: 50px;
+    body{
+        background-image: radial-gradient(#3a3a3a, $background-dark);
+        color: white;
+        font-family: "Roboto", sans-serif;
+
+        .main-wrapper{
+            margin: {
+                top: 20px;
+                bottom: 50px;
+            }
+        }
+
+        div, header, footer{
+            // border: 1px solid $theme-color;
+        }
     }
 }
-

@@ -1,6 +1,6 @@
 .navbar{
     height: 60px;
-    background-color: #1e1b1b;
+    background-color: black;
 
     .navbar-brand{
         font-family: "Edu AU VIC WA NT Dots", cursive;
@@ -9,6 +9,6 @@
     }
 
     .btn{
-        background-color: aqua;
+        background-color: $theme-color;
     }
 }
