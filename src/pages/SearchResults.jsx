@@ -18,7 +18,7 @@ const SearchResults = ({ searched, movies, loading }) => {
             :
                 <>
                 {movies?.map((movie, index) => (
-                    <div className="col-6 col-lg-4 col-xl-3">
+                    <div className="col-sm-6 col-lg-4 col-xl-3">
                         <MovieCard 
                             key={index}
                             movie={movie} 
