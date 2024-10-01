@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = ({ setMovies, searchMovies }) => {
-
-    const navigateTo = useNavigate();
+const Navbar = ({ searchMovies }) => {
 
     const [search, setSearch] = useState("");
 
@@ -11,13 +9,14 @@ const Navbar = ({ setMovies, searchMovies }) => {
         setSearch(e.target.value);
     }
 
-    /* const resetAll = () => {
-        // setMovies([]);
-        // navigateTo("/"); // translates to current URL (?)
-    } */
-
+    const handleEnter = (e) => {
+        if(e.keyCode === 13){
+            e.preventDefault();
+            searchMovies(search);
+        }
+    }
+    
     const newSearch = () => {
-        // resetAll();
         searchMovies(search);
         setSearch("");
     }
@@ -28,19 +27,17 @@ const Navbar = ({ setMovies, searchMovies }) => {
             <div className="container-fluid">
                 <Link 
                     className="navbar-brand"
-                    to={"/"}
-                    >
+                    to={"/"}>
                     KinoLand
                 </Link>
-                <form 
-                    className="d-flex" 
-                    role="search">
+                <div className="d-flex searchbar">
                     <input 
-                        className="form-control me-2" 
+                        className="search-input form-control me-2" 
                         type="search" 
                         placeholder="Search a movie" 
                         aria-label="Search"
                         onChange={handleInput}
+                        onKeyUp={handleEnter}
                         value={search}     
                     />
                     <a // why not button? (reloads) 
@@ -53,7 +50,7 @@ const Navbar = ({ setMovies, searchMovies }) => {
                         /> */}
                         Search
                     </a>
-                </form>
+                </div>
             </div>
         </nav>
         </> 
