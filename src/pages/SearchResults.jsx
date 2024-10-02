@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import MovieCard from '../components/MovieCard'
+import NoMovies from '../components/NoMovies'
 import Loader from '../components/Loader'
 
 const SearchResults = ({ searchBackMovies, searched, movies, loading }) => {
@@ -19,9 +20,7 @@ const SearchResults = ({ searchBackMovies, searched, movies, loading }) => {
             <Loader />
         :
             ( searched && movies === undefined ? 
-                <div className="col not-found">
-                    <h2>No movies found</h2>
-                </div>
+                <NoMovies />
             :
                 <>
                 {movies?.map((movie, index) => (
