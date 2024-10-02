@@ -11845,7 +11845,7 @@ textarea.form-control-lg {
   }
 }
 .navbar {
-  height: 60px;
+  height: 70px;
   background-color: black;
 }
 .navbar .navbar-brand {
@@ -11918,7 +11918,7 @@ textarea.form-control-lg {
 }
 .movie-details .metadata-wrapper {
   justify-content: space-between;
-  color: #9f9f9f;
+  color: #d6d6d6;
 }
 .movie-details .metadata-wrapper .ratings {
   display: flex;
@@ -11961,7 +11961,7 @@ textarea.form-control-lg {
   }
 }
 .movie-of-day .home-title h2, .movie-of-day .home-title .h2 {
-  color: #9f9f9f;
+  color: #d6d6d6;
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .movie-of-day .home-title h2, .movie-of-day .home-title .h2 {
@@ -11988,7 +11988,8 @@ html {
   }
 }
 html body {
-  background-image: radial-gradient(#3a3a3a, #212426);
+  height: 100vh;
+  background-image: radial-gradient(#348fcb, #3a3a3a 90%);
   color: white;
   font-family: "Roboto", sans-serif;
 }
