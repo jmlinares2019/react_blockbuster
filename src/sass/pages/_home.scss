@@ -1,21 +1,27 @@
+.intro{
+
+    .omdb-link{
+        color: $theme-color;
+        margin-left: .5rem;
+    }
+}
+
 .movie-of-day{
 
     @include phone-down{
         margin: 40px auto 0;
 
-        .home-title{
+        h2.suggested-movie-title{
             text-align: center;
         }
     }
 
-    .home-title{
+    
+    h2.suggested-movie-title{
+        color: $lightGrey;
 
-        h2{
-            color: $lightGrey;
-
-            @include tablet-to-desktop{
-                font-size: remify(26px);
-            }
+        @include tablet-to-desktop{
+            font-size: remify(26px);
         }
     }
     
