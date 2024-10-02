@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import MovieCard from '../components/MovieCard'
+import NoMovies from '../components/NoMovies'
 import Loader from '../components/Loader'
 
-const SearchResults = ({ searched, movies, loading }) => {
+const SearchResults = ({ searchBackMovies, searched, movies, loading }) => {
+
+    const reSearchTeam = sessionStorage.getItem("searchTerm");
+    useEffect(() => {
+        if(reSearchTeam !== null){
+            searchBackMovies(reSearchTeam);
+        }
+    }, []);
     
     return (
     <div className="container">
@@ -12,9 +20,7 @@ const SearchResults = ({ searched, movies, loading }) => {
             <Loader />
         :
             ( searched && movies === undefined ? 
-                <div className="col not-found">
-                    <h2>No movies found</h2>
-                </div>
+                <NoMovies />
             :
                 <>
                 {movies?.map((movie, index) => (

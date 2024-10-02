@@ -8,7 +8,6 @@ function Home({ fetchRandomMovie, randomMovie, loading }){
     const isHome = true;
 
     useEffect(() => {
-        console.log("Fetching movie!");
         fetchRandomMovie();
     }, []);
 
@@ -16,14 +15,18 @@ function Home({ fetchRandomMovie, randomMovie, loading }){
             <div className="container">
                 <div className="row">
                     <div className="col-sm-6 col-md-8 intro">
-                        <h1>Welcome to KinoLand</h1>
-                        <p>Esse eu ad officia voluptate aute. Nisi deserunt ad laboris sunt dolore ut laboris cupidatat non non ex proident laboris. Veniam cillum cillum Lorem sint in amet ea proident magna voluptate occaecat. Anim nulla ex exercitation excepteur exercitation anim reprehenderit ea anim minim id.</p>
-
+                        <h1 className="home-title">Welcome to KinoLand!</h1>
+                        <p>This is a simple movie library built in React 18 over Vite environment, as a personal project for learning purposes. Feel free to search and browse movies. The results and information are provided by the 
+                            <a 
+                                href="https://www.omdbapi.com/"
+                                target="_blank"
+                                className="omdb-link">
+                                OMDB (Open Movie DataBase) API
+                            </a>.
+                        </p>
                     </div>
                     <div className="col-8 col-sm-6 col-md-4 movie-of-day">
-                        <div className="row home-title">
-                            <h2>Movie of the Day</h2>
-                        </div>
+                            <h2 className="suggested-movie-title">Have you seen... ?</h2>
                         <div className="row moviecard-wrapper">
                         { loading ? 
                             <Loader />

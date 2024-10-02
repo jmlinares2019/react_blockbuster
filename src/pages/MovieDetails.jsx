@@ -10,7 +10,7 @@ const MovieDetails = ({ fetchMovieDetails, movieDetails, loading }) => {
 
     useEffect(() => {
         fetchMovieDetails(id);
-    }, [])
+    }, []);
 
     return (
         <div className="container">

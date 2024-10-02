@@ -22,7 +22,8 @@ html{
     }
 
     body{
-        background-image: radial-gradient(#3a3a3a, $background-dark);
+        height: 100vh;
+        background-image: radial-gradient($dirty-blue, $background-dark 90%);
         color: white;
         font-family: "Roboto", sans-serif;
 
