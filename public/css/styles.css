@@ -11952,19 +11952,24 @@ textarea.form-control-lg {
   margin-bottom: 0;
 }
 
+.intro .omdb-link {
+  color: #f5c518;
+  margin-left: 0.5rem;
+}
+
 @media screen and (max-width: 576px) {
   .movie-of-day {
     margin: 40px auto 0;
   }
-  .movie-of-day .home-title {
+  .movie-of-day h2.suggested-movie-title, .movie-of-day .suggested-movie-title.h2 {
     text-align: center;
   }
 }
-.movie-of-day .home-title h2, .movie-of-day .home-title .h2 {
+.movie-of-day h2.suggested-movie-title, .movie-of-day .suggested-movie-title.h2 {
   color: #d6d6d6;
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
-  .movie-of-day .home-title h2, .movie-of-day .home-title .h2 {
+  .movie-of-day h2.suggested-movie-title, .movie-of-day .suggested-movie-title.h2 {
     font-size: 1.625rem;
   }
 }
