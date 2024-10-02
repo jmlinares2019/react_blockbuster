@@ -26,16 +26,13 @@ function App() {
       // Fecthing a random movie of the day (home)
       const fetchRandomMovie = async () => {
         setLoading(true);
-        const searchTerms = ["head", "body", "tree", "love", "world", "friend", "life", "great", "cold", "kill"];
+        const searchTerms = ["head", "body", "tree", "love", "world", "friend", "life", "great", "cold", "kill", "city", "game", "fear", "hot"];
         const termIndex = Math.floor((Math.random()) * (searchTerms.length)); 
-        console.log(termIndex);
         const randomSearchTerm = searchTerms[termIndex]; 
-        console.log(randomSearchTerm);
         const pickIndex = Math.floor((Math.random()) * 11);
         try{
           const res = await fetch(`${API_URL}&s=${randomSearchTerm}&type=movie&plot=full`);
           const data = await res.json();
-          console.log(data);
           setRandomMovie(data.Search[pickIndex]);
         } catch(error){
             console.log(error);
@@ -43,7 +40,6 @@ function App() {
             setLoading(false);
         }
       }
-      
       
       // Fetching movies by search
       const searchMovies = async (search) => {
@@ -54,7 +50,6 @@ function App() {
           try {
               const res = await fetch(`${API_URL}&s=${search}`);
               const movies = await res.json();
-              console.log(movies.Search);
               setMovies(movies.Search);
           } catch(err) {
               console.log(err);
@@ -69,7 +64,6 @@ function App() {
           try{
               const res = await fetch(`${API_URL}&i=${id}&plot=full`);
               const data = await res.json();
-              console.log(data);
               setMovieDetails(data);
           } catch(error) {
               console.log(error);

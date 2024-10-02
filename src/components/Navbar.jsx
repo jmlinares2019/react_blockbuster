@@ -12,7 +12,7 @@ const Navbar = ({ searchMovies }) => {
     const handleEnter = (e) => {
         if(e.keyCode === 13){
             e.preventDefault();
-            searchMovies(search);
+            newSearch(search);
         }
     }
     

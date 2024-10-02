@@ -8,7 +8,7 @@ import posterPlaceholder from "/img/poster_placeholder.png"
 const Movie = ({ movie }) => {
 
     const navigateTo = useNavigate();
-    
+
     function goBack(){
         navigateTo(-1);
     }
@@ -56,12 +56,11 @@ const Movie = ({ movie }) => {
                 />
                 </div>
                 <div className="col-md-6 contents-col">
-                    <div className="genres">
                     {/* Genres come in a string, but I need them as an array */}
+                    <p className="genres">{movie.Genre}</p>
                     {/* {(movie?.Genre.split(",")).map((genre) => (
                         <span className="genre">{genre}</span>
                     ))} */}
-                    </div>
                     <p className="plot">{movie.Plot}</p>
                     <div className="crew">
                         <p className="director"><span className="position">Director: </span>{movie.Director}</p>
