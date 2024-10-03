@@ -13,7 +13,7 @@ import MovieDetails from './pages/MovieDetails';
 
 function App() {
 
-      const API_URL = "http://www.omdbapi.com/?apikey=7f41dab3";
+      const API_URL = "https://www.omdbapi.com/?apikey=7f41dab3";
 
       const navigateTo = useNavigate();
 
