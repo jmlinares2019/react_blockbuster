@@ -25,6 +25,10 @@
         }
     }
     
+    .moviecard-wrapper{
+        height: 100%;
+    }
+    
     .movie-card{
         width: 300px;
 
@@ -33,7 +37,6 @@
         }
 
         .item-info{
-            // margin: 0 12px;
             margin-right: calc(var(--bs-gutter-x)* 0.5);
             margin-left: calc(var(--bs-gutter-x)* 0.5);
         }
