@@ -26,7 +26,7 @@ function Home({ fetchRandomMovie, randomMovie, loading }){
                         </p>
                     </div>
                     <div className="col-8 col-sm-6 col-md-4 movie-of-day">
-                            <h2 className="suggested-movie-title">Have you seen... ?</h2>
+                        <h2 className="suggested-movie-title">Have you seen... ?</h2>
                         <div className="row moviecard-wrapper">
                         { loading ? 
                             <Loader />
