@@ -11848,6 +11848,11 @@ textarea.form-control-lg {
   height: 70px;
   background-color: black;
 }
+@media screen and (max-width: 365px) {
+  .navbar {
+    height: 115px;
+  }
+}
 .navbar .navbar-brand {
   font-family: "Edu AU VIC WA NT Dots", cursive;
   color: white;
