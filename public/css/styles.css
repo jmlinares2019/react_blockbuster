@@ -11973,6 +11973,9 @@ textarea.form-control-lg {
     font-size: 1.625rem;
   }
 }
+.movie-of-day .moviecard-wrapper {
+  height: 100%;
+}
 .movie-of-day .movie-card {
   width: 300px;
 }
